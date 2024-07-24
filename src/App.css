@@ -44,6 +44,11 @@ img {
   margin: 0 auto;
 }
 
+.animated-heading {
+  font-size: 60px;
+  font-weight: 700;
+}
+
 a {
   text-decoration: none;
   color: currentColor;
