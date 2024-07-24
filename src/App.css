@@ -88,3 +88,16 @@ a {
   display: flex;
   gap: 30px;
 }
+
+/* RESULT MAIN */
+
+.results-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.results-wrapper .result-item {
+   width: calc(20.25% - 20px);
+}
