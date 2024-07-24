@@ -1,8 +1,10 @@
+import Title from '../components/Title' 
+
 const Comics = () => {
     return (
         <main>
             <div className="container">
-                <div>Comics</div>
+                <Title title="Find a Comic you like" />
             </div>
         </main>
     )

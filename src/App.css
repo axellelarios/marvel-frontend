@@ -45,7 +45,7 @@ img {
 }
 
 .animated-heading {
-  font-size: 60px;
+  font-size: 70px;
   font-weight: 700;
 }
 
@@ -75,7 +75,7 @@ a {
 /* HEADER */
 
 .logo {
-  max-width: 100px;
+  max-width: 90px;
 }
 
 .header-wrapper {
