@@ -9,17 +9,25 @@ const Comics = ({search, setSearch}) => {
     const [comics, setComics] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-
     const handleTitleChange = (event) => {
         setSearch(event.target.value)
     }
+
+    // J'intialise mon filtre
+
+    let filters = ""
+
+    if (search){
+        filters += `title=${search}`
+    }
+
 
     // On appelle un state UseEffect pour qu'a l"ouverture de mon offre va chercher les données via axios
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                `https://site--backend-marvel--z96jrv9g2mbz.code.run/comics/`
+                `https://site--backend-marvel--z96jrv9g2mbz.code.run/comics?${filters}`
                 );
                 console.log(response.data)
                 // On envoie les données à note state SetComics
@@ -30,7 +38,7 @@ const Comics = ({search, setSearch}) => {
         setIsLoading(false);  
         };
         fetchData();
-    }, []);
+    }, [search]);
 
     return isLoading ? (
         <main className="loading">
