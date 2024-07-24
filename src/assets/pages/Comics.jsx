@@ -8,8 +8,10 @@ import Title from '../components/Title'
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Comics = ({search, setSearch}) => {
+const Comics = () => {
 
+    // CREATION DE MES STATE 
+    const [search, setSearch] = useState("");
     const [comics, setComics] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -18,7 +20,6 @@ const Comics = ({search, setSearch}) => {
     }
 
     // J'intialise mon filtre
-
     let filters = ""
 
     if (search){
@@ -49,7 +50,7 @@ const Comics = ({search, setSearch}) => {
            <div className="container">Chargement...</div>
         </main>
      ): (
-        <main>
+        <main className="comics-main">
             <div className="container">
                 <div className='header-content'>
                      <Title title="Find a Comic you like" /> 

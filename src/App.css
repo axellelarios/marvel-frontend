@@ -126,6 +126,11 @@ a {
   gap: 15px;
 }
 
+
+.characters-main .results-wrapper .result-item img {
+    aspect-ratio: 1 / 1;
+}
+
 @media only screen and  (max-width: 1000px) {
   .header-content {
     flex-direction: column;
