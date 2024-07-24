@@ -1,6 +1,10 @@
+// IMPORT DES IMAGES
+import GifNoResult from '../src/no-result_character.gif' 
+
+// IMPORT CONPOSANTS
 import Title from '../components/Title' 
 
-import { useParams } from "react-router-dom";
+// IMPORT DES HOOKS
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -58,12 +62,20 @@ const Comics = ({search, setSearch}) => {
                 
 
                 <div className='results-wrapper'>
-                        {comics.results.map((picture, index) => {
+                        {
+                        comics.results.length > 0 ?
+                        comics.results.map((picture, index) => {
                             let url = picture.thumbnail.path + "." + picture.thumbnail.extension
                             return (
                             <div className='result-item' key={"picture" + index}> <img src={url} /> </div>
                             )
-                        })}
+                        }): 
+                            <div className="no-result">
+                                <div className='no-result--img'> <img src={GifNoResult} /> </div>
+                                <div className='no-result--content'>No results were found for <strong>{search}</strong></div>
+                                
+                            </div>
+                        }
                 </div>
             </div>
         </main>

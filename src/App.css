@@ -49,6 +49,19 @@ img {
   font-weight: 700;
 }
 
+.no-result {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.no-result img{
+  max-width: 300px;
+}
+
 a {
   text-decoration: none;
   color: currentColor;
@@ -135,6 +148,7 @@ form.header__search input {
   border: 0;
   padding: 0 20px;
   min-width: 290px;
+  font-size: 18px;
 }
 
 .results-wrapper {
