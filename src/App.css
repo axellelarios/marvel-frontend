@@ -30,7 +30,7 @@ main {
 }
 
 header, footer  {
-  padding: 20px 0;
+  padding: 40px 0;
 }
 
 img {
@@ -72,6 +72,21 @@ a {
   background-size: 100% .1rem, 100% .1rem;
 }
 
+@media only screen and  (max-width: 1000px) {
+  .animated-heading {
+    font-size: 50px;
+  }
+}
+
+@media only screen and  (max-width: 500px) {
+  .animated-heading {
+    font-size: 40px;
+  }
+  .heading {
+    text-align: center;
+  }
+}
+
 /* HEADER */
 
 .logo {
@@ -95,9 +110,21 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 40px 0;
+  padding: 60px 0;
 }
 
 .results-wrapper .result-item {
    width: calc(20.25% - 20px);
+}
+
+@media only screen and  (max-width: 1000px) {
+  .results-wrapper .result-item {
+    width: calc(34% - 20px);
+ }
+}
+
+@media only screen and  (max-width: 500px) {
+  .results-wrapper .result-item {
+    width: calc(50% - 10px);
+ }
 }

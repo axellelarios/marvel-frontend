@@ -6,7 +6,7 @@ const Title = ({title}) => {
     const text = title.split(" ");
 
     return (
-            <div className="App">
+            <div className="heading">
                 {text.map((el, i) => (
                     <motion.span
                     className="animated-heading"
