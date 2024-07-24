@@ -1,7 +1,13 @@
 // IMPORT DE MES COMPOSANTS
 import Title from '../components/Title' 
 
-const Characters = () => {
+const Characters = ({search, setSearch}) => {
+
+
+    const handleTitleChange = (event) => {
+        setSearch(event.target.value)
+    }
+
     return (
         <main>
             <div className="container">
