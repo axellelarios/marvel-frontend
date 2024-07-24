@@ -116,6 +116,8 @@ a {
 @media only screen and  (max-width: 1000px) {
   .header-content {
     flex-direction: column;
+    justify-content: start;
+    align-items: center;
   }
 }
 
