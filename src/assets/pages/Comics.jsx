@@ -75,8 +75,15 @@ const Comics = () => {
                             return (
                             
                             <div className='result-item' key={"comicData" + index}> 
-                                <div className=''><img src={url} /></div>
-                                <div className=''>{comicData.title}</div>
+                                <div className='result-image'><img src={url} /></div>
+                                <div className='result-title'>{comicData.title}</div>
+                                <div className='result-description'>
+                                        {comicData.description ?
+                                        comicData.description.length > 100 ?
+                                        `${comicData.description.substring(0, 100)}...` : comicData.description
+                                        : <span></span>
+                                        }
+                                </div>
                             </div>
                             )
                         }): 

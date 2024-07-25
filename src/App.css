@@ -1,7 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: black;
-  color: white;
+  color:#F7FFFD;
   position: relative;
   height: 100%;
 }
@@ -113,8 +113,8 @@ a {
   align-items: center;
 }
 .loading div {
-  width: 1rem;
-  height: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
   margin: 2rem 0.3rem;
   background: #ffffff;
   border-radius: 50%;
@@ -171,6 +171,23 @@ a {
   gap: 15px;
 }
 
+.results-wrapper .result-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.results-wrapper .result-item .result-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4em;
+}
+
+.results-wrapper .result-item .result-description {
+  font-size: 14px;
+  line-height: 1.4em;
+  opacity: 0.7;
+}
 
 .characters-main .results-wrapper .result-item img {
     aspect-ratio: 1 / 1;
@@ -206,6 +223,7 @@ form.header__search input {
   flex-wrap: wrap;
   gap: 20px;
   padding: 60px 0;
+  row-gap: 40px;
 }
 
 .results-wrapper .result-item {
