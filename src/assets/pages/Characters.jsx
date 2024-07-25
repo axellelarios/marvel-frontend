@@ -3,6 +3,7 @@ import GifNoResult from '../src/no-result_character.gif'
 
 // IMPORT CONPOSANTS
 import Title from '../components/Title' 
+import Loading from '../components/Loading' 
 
 // IMPORT DES HOOKS
 import React, { useState, useEffect } from "react";
@@ -21,17 +22,20 @@ const Characters = () => {
 
     // J'intialise mon filtre
     let filters = ""
+    let limit = 100
 
     if (search){
-        filters += `name=${search}`
+        filters += `?name=${search}`
     }
+
+    filters += `?limit=${limit}`
 
     // On appelle un state UseEffect pour qu'a l"ouverture de mon offre va chercher les données via axios
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                `https://site--backend-marvel--z96jrv9g2mbz.code.run/characters?${filters}`
+                `https://site--backend-marvel--z96jrv9g2mbz.code.run/characters${filters}`
                 );
                 console.log(response.data)
                 // On envoie les données à note state Setcharacters
@@ -46,8 +50,10 @@ const Characters = () => {
 
 
     return isLoading ? (
-        <main className="loading">
-           <div className="container">Chargement...</div>
+        <main>
+           <div className="container">
+               <Loading />         
+           </div>
         </main>
      ): (
         <main className="characters-main">
@@ -73,7 +79,7 @@ const Characters = () => {
                         }): 
                             <div className="no-result">
                                 <div className='no-result--img'> <img src={GifNoResult} /> </div>
-                                <div className='no-result--content'>No results were found for <strong>{search}</strong></div>
+                                <div className='no-result--content'>No results were found for <strong className='red'>{search}</strong></div>
                                 
                             </div>
                         }

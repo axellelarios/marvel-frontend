@@ -3,6 +3,7 @@ import GifNoResult from '../src/no-result_character.gif'
 
 // IMPORT CONPOSANTS
 import Title from '../components/Title' 
+import Loading from '../components/Loading' 
 
 // IMPORT DES HOOKS
 import React, { useState, useEffect } from "react";
@@ -21,11 +22,13 @@ const Comics = () => {
 
     // J'intialise mon filtre
     let filters = ""
+    let limit = 100
 
     if (search){
         filters += `title=${search}`
     }
-
+    
+    filters += `&limit=${limit}`
 
     // On appelle un state UseEffect pour qu'a l"ouverture de mon offre va chercher les données via axios
     useEffect(() => {
@@ -46,8 +49,10 @@ const Comics = () => {
     }, [search]);
 
     return isLoading ? (
-        <main className="loading">
-           <div className="container">Chargement...</div>
+        <main>
+           <div className="container">
+                <Loading />     
+            </div>
         </main>
      ): (
         <main className="comics-main">
@@ -65,16 +70,19 @@ const Comics = () => {
                 <div className='results-wrapper'>
                         {
                         comics.results.length > 0 ?
-                        comics.results.map((picture, index) => {
-                            let url = picture.thumbnail.path + "." + picture.thumbnail.extension
+                        comics.results.map((comicData, index) => {
+                            let url = comicData.thumbnail.path + "." + comicData.thumbnail.extension
                             return (
-                            <div className='result-item' key={"picture" + index}> <img src={url} /> </div>
+                            
+                            <div className='result-item' key={"comicData" + index}> 
+                                <div className=''><img src={url} /></div>
+                                <div className=''>{comicData.title}</div>
+                            </div>
                             )
                         }): 
                             <div className="no-result">
                                 <div className='no-result--img'> <img src={GifNoResult} /> </div>
-                                <div className='no-result--content'>No results were found for <strong>{search}</strong></div>
-                                
+                                <div className='no-result--content'>No results were found for <strong className="red">{search}</strong></div>
                             </div>
                         }
                 </div>

@@ -67,6 +67,10 @@ a {
   color: currentColor;
 }
 
+.red {
+  color: #ED171F
+}
+
 .link {
   color: currentColor;
   background-color: transparent;
@@ -99,6 +103,47 @@ a {
     text-align: center;
   }
 }
+
+/* LOADING */
+
+.loading {
+  display: flex;
+  justify-content: center;
+  min-height: 45vh;
+  align-items: center;
+}
+.loading div {
+  width: 1rem;
+  height: 1rem;
+  margin: 2rem 0.3rem;
+  background: #ffffff;
+  border-radius: 50%;
+  -webkit-animation: 0.9s bounce infinite alternate;
+          animation: 0.9s bounce infinite alternate;
+}
+.loading div:nth-child(2) {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.loading div:nth-child(3) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+@-webkit-keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
+
+@keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
+
 
 /* HEADER */
 
