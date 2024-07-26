@@ -8,6 +8,7 @@ import Loading from '../components/Loading'
 // IMPORT DES HOOKS
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Characters = () => {
 
@@ -37,7 +38,6 @@ const Characters = () => {
                 const response = await axios.get(
                 `https://site--backend-marvel--z96jrv9g2mbz.code.run/characters${filters}`
                 );
-                console.log(response.data)
                 // On envoie les données à note state Setcharacters
                 setCharacters(response.data); 
             } catch (error) {
@@ -71,10 +71,20 @@ const Characters = () => {
                 <div className='results-wrapper'>
                         {
                         characters.results.length > 0 ?
-                        characters.results.map((picture, index) => {
-                            let url = picture.thumbnail.path + "." + picture.thumbnail.extension
+                        characters.results.map((charaData, index) => {
+                            let url = charaData.thumbnail.path + "." + charaData.thumbnail.extension
                             return (
-                            <div className='result-item' key={"picture" + index}> <img src={url} /> </div>
+                            <Link className="result-item" to={`/pages/character/${charaData._id}`} key={"charaData" + index}> 
+                                    <div className='result-image'><img src={url} /></div>
+                                    <div className='result-title'>{charaData.name}</div>
+                                    <div className='result-description'>
+                                                {charaData.description ?
+                                                charaData.description.length > 100 ?
+                                                `${charaData.description.substring(0, 100)}...` : charaData.description
+                                                : <span></span>
+                                                }
+                                    </div>                           
+                            </Link>
                             )
                         }): 
                             <div className="no-result">

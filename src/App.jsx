@@ -1,4 +1,8 @@
 
+// Link to my live project https://marvel-axelle.netlify.app/pages/comics
+
+// PAGE TRANSITION
+import { motion } from "framer-motion";
 
 // IMPORT DE MON ROUTER
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";

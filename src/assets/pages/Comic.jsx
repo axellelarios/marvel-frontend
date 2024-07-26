@@ -5,7 +5,7 @@ const Comic = () => {
     return (
         <main>
             <div className="container">
-            <Title title="Comic's name" />
+                 <Title title="Comic's name" />
             </div>
         </main>
     )
