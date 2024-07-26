@@ -19,10 +19,8 @@ const Character = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                `https://site--backend-marvel--z96jrv9g2mbz.code.run/character/${id}`
+                `https://site--backend-marvel--z96jrv9g2mbz.code.run/comics/${id}`
                 );
-                console.log(response.data)
-                // On envoie les données à note state SetOffer
                 setCharacter(response.data); 
             } catch (error) {
                 console.log("this is an error >> " + error.response);
@@ -32,9 +30,10 @@ const Character = () => {
         fetchData();
     }, []);
 
-    console.log(character)
+
 
     return isLoading ? (
+        
         <main>
            <div className="container"> 
                <Loading />         
@@ -43,7 +42,35 @@ const Character = () => {
      ): (
         <main>
             <div className="container">
-                   <Title title={character.name} />
+                <div className='detail-card'> 
+                    <Title title={character.name +  "'s comics" + " (" + character.comics.length + ")" } />           
+                    <div className='results-wrapper'>
+                            {
+                            character.comics.length > 0 ?
+                            character.comics.map((comicData, index) => {
+                                let url = comicData.thumbnail.path + "." + comicData.thumbnail.extension
+                                return (
+                                
+                                <div className='result-item' key={"comicData" + index}> 
+                                    <div className='result-image'><img src={url} /></div>
+                                    <div className='result-title'>{comicData.title}</div>
+                                    <div className='result-description'>
+                                            {comicData.description ?
+                                            comicData.description.length > 100 ?
+                                            `${comicData.description.substring(0, 100)}...` : comicData.description
+                                            : <span></span>
+                                            }
+                                    </div>
+                                </div>
+                                )
+                            }): 
+                                <div className="no-result">
+                                    <div className='no-result--img'> <img src={GifNoResult} /> </div>
+                                    <div className='no-result--content'>No results were found for <strong className="red">{search}</strong></div>
+                                </div>
+                            }
+                    </div>
+                </div>
             </div>
         </main>
     ) 

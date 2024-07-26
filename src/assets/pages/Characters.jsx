@@ -26,17 +26,17 @@ const Characters = () => {
     let limit = 100
 
     if (search){
-        filters += `?name=${search}`
+        filters += `name=${search}`
     }
 
-    filters += `?limit=${limit}`
+    filters += `&limit=${limit}`
 
     // On appelle un state UseEffect pour qu'a l"ouverture de mon offre va chercher les données via axios
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                `https://site--backend-marvel--z96jrv9g2mbz.code.run/characters${filters}`
+                `https://site--backend-marvel--z96jrv9g2mbz.code.run/characters?${filters}` 
                 );
                 // On envoie les données à note state Setcharacters
                 setCharacters(response.data); 
