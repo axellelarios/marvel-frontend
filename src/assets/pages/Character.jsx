@@ -1,6 +1,7 @@
 // IMPORT DE MES COMPOSANTS
 import Title from '../components/Title' 
-import Loading from '../components/Loading' 
+import Loading from '../components/Loading'  
+import Favorite from '../components/Favorite' 
 
 // IMPORT DES HOOKS
 import { useParams } from "react-router-dom";
@@ -42,14 +43,21 @@ const Character = () => {
      ): (
         <main>
             <div className="container">
-                <div className='detail-card'> 
-                    <div className='header-content'>
-                        <Title title={character.name +  "'s comics" + " (" + character.comics.length + ")" } />     
-                    </div>  
-                    <div className='header-content'>
-                          hjbjh                 
+                <div className="detail-card"> 
+                    <div className="hero-content">
+                         <div className="image-hero"><img src={character.thumbnail.path + "." + character.thumbnail.extension} /></div> 
+                         <div className="description-hero">
+                           <Title title={character.name } />
+                           {character.description}
+                           <div className='hero-short_links'>
+                               <Favorite data={character} />
+                           </div>
+                         </div>                
                     </div>        
-                    <div className='results-wrapper'>
+                    <div>
+                       <h3>{character.comics.length + " comics" }</h3>
+                    </div>
+                    <div className="results-wrapper">
                             {
                             character.comics.length > 0 ?
                             character.comics.map((comicData, index) => {
@@ -66,12 +74,12 @@ const Character = () => {
                                             : <span></span>
                                             }
                                     </div>
+                                    <Favorite data={comicData} />
                                 </div>
                                 )
                             }): 
                                 <div className="no-result">
-                                    <div className='no-result--img'> <img src={GifNoResult} /> </div>
-                                    <div className='no-result--content'>No results were found for <strong className="red">{search}</strong></div>
+                                    <div className='no-result--content'>No results were found</div>
                                 </div>
                             }
                     </div>
