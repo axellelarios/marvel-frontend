@@ -214,11 +214,14 @@ a {
   display: flex;
   gap: 30px;
 }
+.nav .link {
+  font-size: 15px;
+  font-weight: 700;
+}
 
 @media only screen and  (min-width: 1200px) {
     .nav .link {
       font-size: 18px;
-      letter-spacing: 0.5px;
     }
     main {
       padding: 80px 0;
@@ -307,6 +310,11 @@ a {
 }
 
 @media only screen and  (max-width: 768px) {
+
+  .results-wrapper .result-item .result-title, .results-wrapper .result-item .result-description {
+      padding: 0 10px;
+  }
+
   .characters-main .results-wrapper .result-title, .characters-main .results-wrapper .result-description {
     padding: 0 5px;
   }
