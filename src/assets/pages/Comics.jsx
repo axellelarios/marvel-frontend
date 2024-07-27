@@ -38,8 +38,6 @@ const Comics = () => {
                 const response = await axios.get(
                 `https://site--backend-marvel--z96jrv9g2mbz.code.run/comics?${filters}`
                 );
-                console.log(response.data)
-                // On envoie les données à note state SetComics
                 setComics(response.data); 
             } catch (error) {
                 console.log("this is an error >> " + error.response);

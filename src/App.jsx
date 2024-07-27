@@ -20,11 +20,11 @@ import Character from './assets/pages/Character'
 import Characters from './assets/pages/Characters' 
 import Comic from './assets/pages/Comic' 
 import Comics from './assets/pages/Comics' 
-
+import Favoris from './assets/pages/Favoris.jsx' 
 
 // IMPORT DE MES HOOKS
 import React, { useState, useEffect } from "react";
-
+import Cookies from "js-cookie";
 
 function App() {
 
@@ -38,6 +38,7 @@ function App() {
           <Route path="/pages/comics" element={<Comics />} />
           <Route path="/pages/character/:id" element={<Character />} />
           <Route path="/pages/characters/:id" element={<Comic />} />
+          <Route path="/pages/favorites/" element={<Favoris />} />
         </Routes>
       <Footer /> 
     </Router> 

@@ -162,6 +162,19 @@ a {
   gap: 30px;
 }
 
+.nav .link {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media only screen and  (max-width: 768px) {
+  .header-wrapper {
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+}
+
 /* RESULT MAIN */
 
 .header-content {
@@ -169,6 +182,7 @@ a {
   align-items: end; 
   justify-content: space-between;
   gap: 15px;
+  margin-bottom: 40px;
 }
 
 .results-wrapper .result-item {
@@ -209,6 +223,17 @@ a {
   }
 }
 
+form.header__search  { 
+  position: relative;
+}
+
+
+form.header__search svg {
+  position: absolute;
+  top: 30%;
+  left: 16px;
+}
+
 form.header__search input { 
   min-height: 40px;
   border-radius: 50px;
@@ -216,13 +241,14 @@ form.header__search input {
   padding: 0 20px;
   min-width: 290px;
   font-size: 18px;
+  padding-left: 40px;
 }
 
 .results-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 60px 0;
+  padding: 0 0 60px;
   row-gap: 40px;
 }
 
@@ -247,5 +273,25 @@ form.header__search input {
 }
 
 
-/* CARD DETAIL */
+/* HERO HOMEPAGE */
 
+.homepage-main {
+  display: flex;
+  gap: 40px;
+  align-items: start;
+}
+
+.homepage-hero {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px; 
+}
+
+.homepage-hero .homepage-content {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  text-align: center;
+}

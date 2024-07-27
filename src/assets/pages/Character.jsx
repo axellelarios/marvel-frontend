@@ -43,7 +43,9 @@ const Character = () => {
         <main>
             <div className="container">
                 <div className='detail-card'> 
-                    <Title title={character.name +  "'s comics" + " (" + character.comics.length + ")" } />           
+                    <div className='header-content'>
+                        <Title title={character.name +  "'s comics" + " (" + character.comics.length + ")" } />     
+                    </div>      
                     <div className='results-wrapper'>
                             {
                             character.comics.length > 0 ?

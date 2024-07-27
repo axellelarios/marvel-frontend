@@ -9,6 +9,7 @@ import Loading from '../components/Loading'
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Characters = () => {
 
@@ -21,6 +22,20 @@ const Characters = () => {
         setSearch(event.target.value)
     }
 
+    // Création fonction ajout favoris
+    const addToCookies = (charaData) => {
+        let charactersFavorite = Cookies.get();
+        //console.log(charactersFavorite)
+        // Je check si la valeur est un tableau,
+        if (!Array.isArray(charactersFavorite)) {
+            charactersFavorite = [];
+        }
+        charactersFavorite.push(JSON.stringify(charaData));
+        console.log(charactersFavorite)
+        Cookies.set(`favCharacter_${charaData._id}`, charactersFavorite, { expires: 7 });
+    };  
+
+    
     // J'intialise mon filtre
     let filters = ""
     let limit = 100
@@ -74,8 +89,8 @@ const Characters = () => {
                         characters.results.map((charaData, index) => {
                             let url = charaData.thumbnail.path + "." + charaData.thumbnail.extension
                             return (
-                            <Link className="result-item" to={`/pages/character/${charaData._id}`} key={"charaData" + index}> 
-                                    <div className='result-image'><img src={url} /></div>
+                            <div className="result-item" key={"charaData" + index}> 
+                                     <Link className="result-image" to={`/pages/character/${charaData._id}`} key={"charaData" + index}><img src={url} /></Link>
                                     <div className='result-title'>{charaData.name}</div>
                                     <div className='result-description'>
                                                 {charaData.description ?
@@ -83,8 +98,11 @@ const Characters = () => {
                                                 `${charaData.description.substring(0, 100)}...` : charaData.description
                                                 : <span></span>
                                                 }
-                                    </div>                           
-                            </Link>
+                                    </div> 
+                                    <button onClick={() => addToCookies(charaData)}>
+                                       Add to your Favorites
+                                    </button>                          
+                            </div>
                             )
                         }): 
                             <div className="no-result">
