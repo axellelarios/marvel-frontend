@@ -4,12 +4,12 @@ import GifNoResult from '../src/no-result_character.gif'
 // IMPORT CONPOSANTS
 import Title from '../components/Title' 
 import Loading from '../components/Loading' 
+import Favorite from '../components/Favorite' 
 
 // IMPORT DES HOOKS
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const Characters = () => {
 
@@ -21,21 +21,7 @@ const Characters = () => {
     const handleTitleChange = (event) => {
         setSearch(event.target.value)
     }
-
-    // Création fonction ajout favoris
-    const addToCookies = (charaData) => {
-        let charactersFavorite = Cookies.get();
-        //console.log(charactersFavorite)
-        // Je check si la valeur est un tableau,
-        if (!Array.isArray(charactersFavorite)) {
-            charactersFavorite = [];
-        }
-        charactersFavorite.push(JSON.stringify(charaData));
-        console.log(charactersFavorite)
-        Cookies.set(`favCharacter_${charaData._id}`, charactersFavorite, { expires: 7 });
-    };  
-
-    
+  
     // J'intialise mon filtre
     let filters = ""
     let limit = 100
@@ -99,9 +85,7 @@ const Characters = () => {
                                                 : <span></span>
                                                 }
                                     </div> 
-                                    <button onClick={() => addToCookies(charaData)}>
-                                       Add to your Favorites
-                                    </button>                          
+                                    <Favorite characters={characters} charaData={charaData} />
                             </div>
                             )
                         }): 

@@ -4,24 +4,25 @@ import Title from '../components/Title'
 import Loading from '../components/Loading' 
 
 // IMPORT DES HOOKS
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react"; 
 import axios from "axios";
-
+ 
 const Home = () => {
-
     // CREATION DE MES STATE 
     const [comics, setComics] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-    // On appelle un state UseEffect pour qu'a l"ouverture de mon offre va chercher les données via axios
     useEffect(() => {
 
+        // J'ajoute une class spefique a mon composant home
+        document.body.classList.add('index');
+        // Pour mettre un ordre random à mon array
         const shuffle = (array) => {
             for (var i = array.length - 1; i > 0; i--) {
-              var j = Math.floor(Math.random() * (i + 1));
-              var temp = array[i];
-              array[i] = array[j];
-              array[j] = temp;
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
         };
 
@@ -33,16 +34,20 @@ const Home = () => {
 
                 const data = response.data.results;
                 shuffle(data);
-                console.log(data)
                 setComics(data); 
+
             } catch (error) {
                 console.log("this is an error >> " + error.response);
             }   
         setIsLoading(false);  
+
         };
         fetchData();
-    }, []);
+        return function cleanup() {
+            document.body.classList.remove('index');
+        };
 
+    }, []);
 
     return isLoading ? (
         <main>
@@ -51,30 +56,33 @@ const Home = () => {
             </div>
         </main>
      ): (
-        <main className='home index'>
-            <div className="container">
-                    <div className='header-content'>
-                       <Title title="Hot's comics" />
-                    </div>
-                    <div className='homepage-main'> 
-                        { 
-                            comics.map((comicData, index) => {
-                                if (index < 3) {
-                                    let url = comicData.thumbnail.path + "." + comicData.thumbnail.extension
+
+		<main data-scroll-container ref={scroll}>
+				<div class="content">
+					<div class="gallery" data-scroll data-scroll-speed={6}>
+
+                      {comics.map((comicData, index) => {
+                                let url = comicData.thumbnail.path + "." + comicData.thumbnail.extension
+                                if (index < 20) {
                                     return (
-                                    <div className='homepage-hero' key={"comicData" + index}>                                   
-                                        <div className='homepage-image'><img src={url} /></div>
-                                        <div className='homepage-content'>
-                                           <div className='result-title'> {comicData.title}</div>                                          
-                                        </div>                                        
-                                    </div>
+                                        <figure  key={comicData.thumbnail.path + index} class="gallery__item">
+                                            <div class="gallery__item-img">
+                                                <div class="gallery__item-imginner" data-scroll="" data-scroll-speed="-0.8">
+                                                    <img className="content__img" src={url} />
+                                                </div>
+                                            </div>
+                                            <figcaption class="gallery__item-caption">
+                                                <h2 class="gallery__item-title" data-scroll="" data-scroll-speed="1">{comicData.name}</h2>
+                                            </figcaption>
+                                        </figure>                                             
                                     )
                                 }
                             })
-                        }                 
-                    </div>
-            </div>
-        </main> 
+                        }   
+					</div>
+				</div>
+			</main>
+ 
     )
 }
 

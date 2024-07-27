@@ -33,6 +33,8 @@ const Comics = () => {
 
     // On appelle un state UseEffect pour qu'a l"ouverture de mon offre va chercher les données via axios
     useEffect(() => {
+
+        
         const fetchData = async () => {
             try {
                 const response = await axios.get(
