@@ -4,6 +4,7 @@ import GifNoResult from '../src/no-result_character.gif'
 // IMPORT CONPOSANTS
 import Title from '../components/Title' 
 import Loading from '../components/Loading' 
+import Favorite from '../components/Favorite' 
 
 // IMPORT DES HOOKS
 import React, { useState, useEffect } from "react";
@@ -85,6 +86,7 @@ const Comics = () => {
                                         : <span></span>
                                         }
                                 </div>
+                                <Favorite data={comicData} />
                             </div>
                             )
                         }): 
