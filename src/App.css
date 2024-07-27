@@ -74,7 +74,7 @@ img {
 
 .container {
   padding: 0 20px;
-  max-width: 1500px;
+  max-width: 1450px;
   margin: 0 auto;
 }
 
@@ -524,6 +524,13 @@ form.header__search input {
   right: unset;
   top: unset;
   align-items: center;
+  padding: 11px 24px;
+  border: 1px solid;
+  border-radius: 40px;
+}
+
+.hero-short_links .add-to-favorite svg {
+  max-width: 20px;
 }
 
 .hero-short_links .add-to-favorite span {
