@@ -39,14 +39,16 @@ main {
   padding: 40px 0;
 }
 
-header, footer  {
-  padding: 40px 0;
-  background: #1a1429;
+header {
+  background: #6f49cf;
+  padding: 20px 0;
 }
 
 footer {
+  padding: 40px 0;
   min-height: 150px;
   font-size: 14px;
+  background: #1a1429;
 }
 
 img {
@@ -184,7 +186,7 @@ a {
 
 @media only screen and  (min-width: 1200px) {
     .nav .link {
-      font-size: 20px;
+      font-size: 18px;
       letter-spacing: 0.5px;
     }
 }
@@ -368,4 +370,46 @@ form.header__search input {
   flex-direction: column;
   gap: 40px;
   text-align: center;
+}
+
+.gallery-content {
+  position: relative;
+  max-height: 68vh;
+  min-height: 66vh;;
+  overflow: hidden;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0.2;
+}
+
+.gallery figure{
+  max-width: 190px;
+}
+
+.gallery-content .main-heading {
+  position: absolute;
+  max-width: 901px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  top: 50%;
+  z-index: 1;
+}
+
+.gallery-content .main-heading {
+  position: absolute;
+  max-width: 901px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  top: 50%;
+  z-index: 1;
+}
+
+.gallery-content .main-heading .heading span.animated-heading:first-of-type {
+   color: #6f49cf;
 }

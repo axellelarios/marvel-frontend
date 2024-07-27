@@ -58,7 +58,10 @@ const Home = () => {
      ): (
 
 		<main data-scroll-container ref={scroll}>
-				<div class="content">
+				<div class="content gallery-content">
+                    <div className='main-heading'>
+                         <Title title="Browse and purchase Marvel digital & print comics" /> 
+                    </div>
 					<div class="gallery" data-scroll data-scroll-speed={6}>
 
                       {comics.map((comicData, index) => {
