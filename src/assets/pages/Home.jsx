@@ -6,6 +6,7 @@ import Loading from '../components/Loading'
 // IMPORT DES HOOKS
 import React, { useState, useEffect, useRef } from "react"; 
 import axios from "axios";
+import { Link } from "react-router-dom";
  
 const Home = () => {
     // CREATION DE MES STATE 
@@ -61,7 +62,7 @@ const Home = () => {
 				<div class="content gallery-content">
                     <div className='main-heading'>
                          <Title title="Discover all Marvel's digital & print comics" /> 
-                         <button className='button primary-button'>Browse all Comics</button>
+                         <Link className="link button primary-button" to="/pages/comics">Browse all Comics</Link>
                     </div>
 					<div class="gallery" data-scroll data-scroll-speed={6}>
 
