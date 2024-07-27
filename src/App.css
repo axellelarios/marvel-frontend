@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Syne", sans-serif;
   background-color: black;
   color:#F7FFFD;
   position: relative;
@@ -14,8 +14,8 @@ body::before {
   width: 100%;
   height: 100%;
   opacity: 0.2;
-  background: url(../src/assets/src/bkg.jpg);
   z-index: -1;
+  background: #4a4848;
   font-size: 16px;
 }
 
@@ -31,6 +31,7 @@ html {
   top: 10px;
   right: 10px;
   padding: 0;
+  cursor: pointer;
 }
 
 /* GENERAL */
@@ -42,6 +43,8 @@ main {
 header {
   background: #6f49cf;
   padding: 20px 0;
+  border-bottom-left-radius: 26px;
+  border-bottom-right-radius: 26px;
 }
 
 footer {
@@ -82,6 +85,19 @@ img {
 
 .no-result img{
   max-width: 300px;
+}
+
+.button.primary-button {
+  padding: 5px 35px;
+  font-size: 18px;
+  background: #da1f1f;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: none;
+  height: 55px;
+  color: honeydew;
+  font-weight: 600;
+  width: fit-content;
 }
 
 a {
@@ -193,7 +209,7 @@ a {
       padding: 80px 0;
     }
     .index main {
-      padding: 40px 0;
+      padding: 0;
     }
 }
 
@@ -380,8 +396,8 @@ form.header__search input {
 
 .gallery-content {
   position: relative;
-  max-height: 68vh;
-  min-height: 66vh;;
+  max-height: 75vh;
+  min-height: 75vh;;
   overflow: hidden;
 }
 
@@ -398,17 +414,6 @@ form.header__search input {
 
 .gallery-content .main-heading {
   position: absolute;
-  max-width: 901px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  top: 50%;
-  z-index: 1;
-  padding: 0 10px
-}
-
-.gallery-content .main-heading {
-  position: absolute;
   max-width: 900px;
   width: 100%;
   left: 50%;
@@ -416,13 +421,18 @@ form.header__search input {
   text-align: center;
   top: 50%;
   z-index: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
 }
 
 .gallery-content .main-heading .heading span.animated-heading:first-of-type {
   display: inline-block;
   color: white;
   background: #da1f1f;
-  margin: 0px 9px;
+  margin: 15px 9px;
   transform: rotate(356deg);
   padding: 0px 7px;
 }

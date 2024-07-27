@@ -45,7 +45,10 @@ const Character = () => {
                 <div className='detail-card'> 
                     <div className='header-content'>
                         <Title title={character.name +  "'s comics" + " (" + character.comics.length + ")" } />     
-                    </div>      
+                    </div>  
+                    <div className='header-content'>
+                          hjbjh                 
+                    </div>        
                     <div className='results-wrapper'>
                             {
                             character.comics.length > 0 ?

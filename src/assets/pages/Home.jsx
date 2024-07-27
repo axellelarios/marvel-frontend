@@ -60,13 +60,14 @@ const Home = () => {
 		<main data-scroll-container ref={scroll}>
 				<div class="content gallery-content">
                     <div className='main-heading'>
-                         <Title title="Browse and purchase Marvel digital & print comics" /> 
+                         <Title title="Discover all Marvel's digital & print comics" /> 
+                         <button className='button primary-button'>Browse all Comics</button>
                     </div>
 					<div class="gallery" data-scroll data-scroll-speed={6}>
 
                       {comics.map((comicData, index) => {
                                 let url = comicData.thumbnail.path + "." + comicData.thumbnail.extension
-                                if (index < 20) {
+                                if (index < 40) {
                                     return (
                                         <figure  key={comicData.thumbnail.path + index} class="gallery__item">
                                             <div class="gallery__item-img">

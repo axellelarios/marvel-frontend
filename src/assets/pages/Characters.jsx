@@ -67,8 +67,7 @@ const Characters = () => {
                            <input value={search} onChange={handleTitleChange} placeholder="Search a Character..."></input>
                      </form>                   
                 </div>
-                
-
+    
                 <div className='results-wrapper'>
                         {
                         characters.results.length > 0 ?
