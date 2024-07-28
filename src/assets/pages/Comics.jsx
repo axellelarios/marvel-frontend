@@ -83,7 +83,7 @@ const Comics = () => {
                                 <div className='result-description'>
                                         {comicData.description ?
                                         comicData.description.length > 100 ?
-                                        `${comicData.description.substring(0, 100)}...` : comicData.description
+                                        `${comicData.description.substring(0, 80)}...` : comicData.description
                                         : <span></span>
                                         }
                                 </div>

@@ -7,6 +7,7 @@ import transition from '../js/Transition';
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Character = () => {
     // Je récupère le params envoyé dans l'url
@@ -65,7 +66,7 @@ const Character = () => {
                                 return (
                                 
                                 <div className='result-item' key={"comicData" + index}> 
-                                    <div className='result-image'><img src={url} /></div>
+                                    <Link  className='result-image' to={`/pages/comic/${comicData._id}`} ><img src={url} /></Link>
                                     <div className='result-title'>{comicData.title}</div>
                                     <div className='result-description'>
                                             {comicData.description ?

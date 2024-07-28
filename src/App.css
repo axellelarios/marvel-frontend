@@ -1,3 +1,9 @@
+
+@font-face {
+  font-family: 'Tusker';
+  src: local('Tusker'), url(../src/assets/fonts/tusker-grotesk-6700-bold.woff2) format('woff2'), url(../src/assets/fonts/tusker-grotesk-6700-bold.ttf) format('TrueType');
+}
+
 body {
   font-family: "Syne", sans-serif;
   background: #0f1326;
@@ -20,6 +26,11 @@ body::before {
 
 html {
   height: 100%;
+}
+
+h1, h2, h3, h4, .heading {
+  font-family: "Tusker", sans-serif;
+  text-transform: uppercase;
 }
 
 .add-to-favorite {
@@ -86,8 +97,10 @@ img {
 }
 
 .animated-heading {
-  font-size: 70px;
   font-weight: 700;
+  display: inline-block;
+  margin: 0 6px;
+  line-height: 1.3em;
 }
 
 .no-result {
@@ -106,12 +119,12 @@ img {
 .button.primary-button {
   padding: 5px 35px;
   font-size: 18px;
-  background: linear-gradient(to right, rgb(71, 118, 230), rgb(142, 84, 233));
+  background: white;
   border: 0;
   border-radius: 50px;
   box-shadow: none;
   height: 55px;
-  color: honeydew;
+  color: #090c17;
   font-weight: 600;
   width: fit-content;
   display: flex;
@@ -224,13 +237,15 @@ a {
   gap: 30px;
 }
 .nav .link {
-  font-size: 15px;
-  font-weight: 700;
+  font-weight: initial;
+  font-family: "Tusker", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 @media only screen and  (min-width: 1200px) {
     .nav .link {
-      font-size: 18px;
+      font-size: 20px;
     }
     main {
       padding: 160px 0;
@@ -389,6 +404,9 @@ form.header__search input {
   .results-wrapper .result-item {
     width: calc(16.25% - 11px);
   }
+  .animated-heading {
+    font-size: 75px;
+  }
 } 
 
 @media only screen and  (max-width: 1000px) {
@@ -410,7 +428,6 @@ form.header__search input {
   width: 100%;
  }
 }
-
 
 /* HERO HOMEPAGE */
 
@@ -470,17 +487,11 @@ form.header__search input {
 }
 
 .gallery-content .main-heading .heading span.animated-heading:first-of-type {
-  display: inline-block;
-  color: white;
-  background: #da1f1f;
-  margin: 15px 9px;
-  transform: rotate(356deg);
-  padding: 0px 7px;
+  color: #ED171F;
 }
 
 
 @media only screen and  (max-width: 700px) {
-
   .gallery figure{
     max-width: 90px;
   }
@@ -494,13 +505,9 @@ form.header__search input {
 }  
 
 @media only screen and  (max-width: 500px) {
-  .gallery-content .main-heading .heading span.animated-heading:first-of-type {
-    margin: 8px 9px;
- }
-  .gallery-content .animated-heading {
+ .gallery-content .animated-heading {
     font-size: 35px;
-  }
-
+ }
 }  
 
 .hero-content {
