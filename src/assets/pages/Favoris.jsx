@@ -16,11 +16,12 @@ const Favoris = () => {
     useEffect(() => { 
           const allCookies = Cookies.get();
           //console.log(Object.keys(allCookies))
-          const favoriteTable = Object.keys(allCookies).map((key) => JSON.parse(allCookies[key]));
+          const favoriteTable = Object.keys(allCookies).map(
+            (key) => JSON.parse(allCookies[key]    
+            ));
           setFavorites({data: favoriteTable});
-    }, []);
 
-    //console.log(favorites)
+    }, []);
 
     return (
         <main className='favoris'>
@@ -32,11 +33,11 @@ const Favoris = () => {
                 <div className='results-wrapper'>
                     {favorites.data.map((data, index) => { 
                         let url = data.thumbnail.path + "/standard_medium" +  "." + data.thumbnail.extension
+                        
                         return (
                             <div className='result-item' key={data.id + index}> 
                                 <div className='result-image'><img src={url} /></div>
                                 <div className='result-title'>{data.title ? data.title : data.name}</div>
-                      
                             </div>
                        )}
                     )} 
