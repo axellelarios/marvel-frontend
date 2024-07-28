@@ -2,6 +2,7 @@
 // IMPORT CONPOSANTS
 import Title from '../components/Title' 
 import Loading from '../components/Loading' 
+import transition from '../js/Transition'; 
 
 // IMPORT DES HOOKS
 import React, { useState, useEffect, useRef } from "react"; 
@@ -59,25 +60,25 @@ const Home = () => {
      ): (
 
 		<main data-scroll-container ref={scroll}>
-				<div class="content gallery-content">
+				<div className="content gallery-content">
                     <div className='main-heading'>
                          <Title title="Discover all Marvel's digital & print comics" /> 
                          <Link className="link button primary-button" to="/pages/comics">Browse all Comics</Link>
                     </div>
-					<div class="gallery" data-scroll data-scroll-speed={6}>
-
+					<div className="gallery" data-scroll data-scroll-speed={6}>
+ 
                       {comics.map((comicData, index) => {
                                 let url = comicData.thumbnail.path + "." + comicData.thumbnail.extension
                                 if (index < 40) {
                                     return (
-                                        <figure  key={comicData.thumbnail.path + index} class="gallery__item">
-                                            <div class="gallery__item-img">
-                                                <div class="gallery__item-imginner" data-scroll="" data-scroll-speed="-0.8">
+                                        <figure  key={comicData.thumbnail.path + index} className="gallery__item">
+                                            <div className="gallery__item-img">
+                                                <div className="gallery__item-imginner" data-scroll="" data-scroll-speed="-0.8">
                                                     <img className="content__img" src={url} />
                                                 </div>
                                             </div>
-                                            <figcaption class="gallery__item-caption">
-                                                <h2 class="gallery__item-title" data-scroll="" data-scroll-speed="1">{comicData.name}</h2>
+                                            <figcaption className="gallery__item-caption">
+                                                <h2 className="gallery__item-title" data-scroll="" data-scroll-speed="1">{comicData.name}</h2>
                                             </figcaption>
                                         </figure>                                             
                                     )
@@ -91,4 +92,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default transition(Home);

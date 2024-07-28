@@ -5,6 +5,7 @@ import GifNoResult from '../src/no-result_character.gif'
 import Title from '../components/Title' 
 import Loading from '../components/Loading' 
 import Favorite from '../components/Favorite' 
+import transition from '../js/Transition'; 
 
 // IMPORT DES HOOKS
 import React, { useState, useEffect } from "react";
@@ -77,7 +78,7 @@ const Characters = () => {
                             <div className="result-item" key={"charaData" + index}> 
                                      <Link className="result-image" to={`/pages/character/${charaData._id}`} key={"charaData" + index}><img src={url} /></Link>
                                     <div className='result-title'>{charaData.name}</div>
-                                    <Favorite data={charaData} />
+                                    <Favorite data={charaData} type="Character" />
                             </div>
                             )
                         }): 
@@ -93,4 +94,4 @@ const Characters = () => {
     )
 }
 
-export default Characters;
+export default transition(Characters);

@@ -5,6 +5,7 @@ import GifNoResult from '../src/no-result_character.gif'
 import Title from '../components/Title' 
 import Loading from '../components/Loading' 
 import Favorite from '../components/Favorite' 
+import transition from '../js/Transition'; 
 
 // IMPORT DES HOOKS
 import React, { useState, useEffect } from "react";
@@ -75,9 +76,9 @@ const Comics = () => {
                         comics.results.map((comicData, index) => {
                             let url = comicData.thumbnail.path + "." + comicData.thumbnail.extension
                             return (
-                            
-                            <div className='result-item' key={"comicData" + index}> 
-                                <div className='result-image'><img src={url} /></div>
+
+                            <div className="result-item" key={"comicData" + index}> 
+                                <Link  className='result-image' to={`/pages/comic/${comicData._id}`}key={"comicData" + index}><img src={url} /></Link>
                                 <div className='result-title'>{comicData.title}</div>
                                 <div className='result-description'>
                                         {comicData.description ?
@@ -86,7 +87,7 @@ const Comics = () => {
                                         : <span></span>
                                         }
                                 </div>
-                                <Favorite data={comicData} />
+                                <Favorite data={comicData} type="Comic" />
                             </div>
                             )
                         }): 
@@ -101,4 +102,4 @@ const Comics = () => {
     )
 }
 
-export default Comics;
+export default transition(Comics);

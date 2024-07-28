@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import React, { useState, useEffect, useRef } from "react"; 
 
-const Favorite = ({data}) => {
+const Favorite = ({data, type}) => {
     const [active, setActive] = useState(null);
     
 
@@ -17,17 +17,17 @@ const Favorite = ({data}) => {
         console.log(charactersFavorite)
         if (active == false) { 
             setActive(true) 
-            Cookies.set(`favCharacter_${data._id}`, charactersFavorite, { expires: 7 });
+            Cookies.set(`fav${type}_${data._id}`, charactersFavorite, { expires: 7 });
         } else {
             setActive(false) 
-            Cookies.remove(`favCharacter_${data._id}`);
+            Cookies.remove(`fav${type}_${data._id}`);
         }
     }; 
 
 
     // On observe si cookie exsite = active sinon false
     useEffect(() => {
-         if(Cookies.get(`favCharacter_${data._id}`)) {
+         if(Cookies.get(`fav${type}_${data._id}`)) {
             setActive(true)
 
          } else {

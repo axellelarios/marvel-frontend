@@ -2,7 +2,7 @@
 import Title from '../components/Title' 
 import Loading from '../components/Loading'  
 import Favorite from '../components/Favorite' 
-
+import transition from '../js/Transition'; 
 // IMPORT DES HOOKS
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
@@ -44,13 +44,13 @@ const Character = () => {
         <main>
             <div className="container">
                 <div className="detail-card"> 
-                    <div className="hero-content">
+                    <div className="hero-content hero-character">
                          <div className="image-hero"><img src={character.thumbnail.path + "." + character.thumbnail.extension} /></div> 
                          <div className="description-hero">
                            <Title title={character.name } />
                            {character.description}
                            <div className='hero-short_links'>
-                               <Favorite data={character} />
+                               <Favorite data={character} type="Character"/>
                            </div>
                          </div>                
                     </div>        
@@ -74,7 +74,7 @@ const Character = () => {
                                             : <span></span>
                                             }
                                     </div>
-                                    <Favorite data={comicData} />
+                                    <Favorite data={comicData} type="Comic"/>
                                 </div>
                                 )
                             }): 
@@ -89,4 +89,4 @@ const Character = () => {
     ) 
 }
 
-export default Character;
+export default transition(Character);

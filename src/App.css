@@ -45,7 +45,7 @@ html {
 /* GENERAL */
 
 main {
-  padding: 40px 0;
+  padding: 160px 0;
 }
 
 header {
@@ -53,6 +53,9 @@ header {
   padding: 20px 0;
   border-bottom-left-radius: 26px;
   border-bottom-right-radius: 26px;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
 }
 
 footer {
@@ -60,6 +63,7 @@ footer {
   min-height: 150px;
   font-size: 14px;
   background: #090c17;
+  text-align: center;
 }
 
 img {
@@ -142,6 +146,7 @@ a {
 @media only screen and  (max-width: 1000px) {
   .animated-heading {
     font-size: 50px;
+    line-height: 1.3em;
   }
 }
 
@@ -150,7 +155,8 @@ a {
     padding: 0px 15px;
   }
   .animated-heading {
-    font-size: 40px;
+    font-size: 33px;
+    line-height: 1.3em;
   }
   .heading {
     text-align: center;
@@ -224,7 +230,7 @@ a {
       font-size: 18px;
     }
     main {
-      padding: 80px 0;
+      padding: 160px 0;
     }
     .index main {
       padding: 0;
@@ -391,6 +397,9 @@ form.header__search input {
   .results-wrapper .result-item {
     width: calc(50% - 5px);
  }
+ form.header__search, form.header__search input {
+  width: 100%;
+ }
 }
 
 
@@ -468,6 +477,7 @@ form.header__search input {
   }
   .gallery-content .animated-heading {
     font-size: 35px;
+    line-height: 1.3em;
   }
   .index main {
     padding: 10px 0;
@@ -475,11 +485,14 @@ form.header__search input {
 }  
 
 @media only screen and  (max-width: 500px) {
+  .gallery-content .main-heading .heading span.animated-heading:first-of-type {
+    margin: 8px 9px;
+ }
   .gallery-content .animated-heading {
-    font-size: 30px;
+    font-size: 35px;
   }
-}  
 
+}  
 
 .hero-content {
   display: flex;
@@ -500,6 +513,13 @@ form.header__search input {
   aspect-ratio: 1/1;
 }
 
+.hero-content.hero-comic .image-hero {
+  max-width: 250px;
+}
+
+.hero-content.hero-comic .image-hero img {
+  aspect-ratio: 0.58 / 1;
+}
 
 .hero-content .description-hero {
   padding: 20px;
@@ -556,4 +576,36 @@ form.header__search input {
     .hero-content .description-hero {
       padding: 20px 10px;
     }
+}
+
+@media only screen and  (max-width: 500px) {
+  .gallery-content {
+    max-height: 70vh;
+    min-height: 70vh;
+  }
+}
+
+
+/* PAGE ANIMATION */
+
+.slide-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0f0f0f;
+  transform-origin: bottom;
+  z-index: 9999999;
+}
+
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0f0f0f;
+  transform-origin: top;
+  z-index: 9999999;
 }
