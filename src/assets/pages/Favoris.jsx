@@ -6,21 +6,20 @@ import transition from '../js/Transition';
 // IMPORT DE MES HOOKS
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
-
+import { Link } from "react-router-dom";
+ 
 const Favoris = () => {
+   
+    const [favorites, setFavorites] = useState({data: []});
 
-    console.log(Cookies.get())
+    useEffect(() => { 
+          const allCookies = Cookies.get();
+          //console.log(Object.keys(allCookies))
+          const favoriteTable = Object.keys(allCookies).map((key) => JSON.parse(allCookies[key]));
+          setFavorites({data: favoriteTable});
+    }, []);
 
-    const [favorites, setFavorites] = useState([]);
-
-    useEffect(() => {
-
-        //const characterFavorites = JSON.parse(
-         //   Cookies.get()("characterFavorites") || "[]"
-        // );
-         //setFavorites({ ...characterFavorites, ...comicFavorites });
-
-      }, []);
+    //console.log(favorites)
 
     return (
         <main className='home index'>
@@ -28,13 +27,23 @@ const Favoris = () => {
                 <div className='header-content'> 
                     <Title title="Your favorites" />
                 </div> 
-                <div>
- 
-   
+
+                <div className='results-wrapper'>
+                    {favorites.data.map((data, index) => { 
+                        let url = data.thumbnail.path + "/standard_medium" +  "." + data.thumbnail.extension
+                        return (
+                            <div className='result-item' key={data.id + index}> 
+                                <Link  className='result-image' to={`/pages/comic/${data._id}`} ><img src={url} /></Link>
+                                <div className='result-title'>{data.title ? data.title : data.name}</div>
+                            </div>
+                       )}
+                    )} 
+
                 </div>
             </div>
         </main> 
     )
 }
+
 
 export default transition(Favoris);

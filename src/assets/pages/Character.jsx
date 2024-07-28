@@ -66,7 +66,7 @@ const Character = () => {
                                 return (
                                 
                                 <div className='result-item' key={"comicData" + index}> 
-                                    <Link  className='result-image' to={`/pages/comic/${comicData._id}`} ><img src={url} /></Link>
+                                    <Link  className='result-image' to={`/pages/comic/${comicData._id}`} ><img  src={url} /></Link>
                                     <div className='result-title'>{comicData.title}</div>
                                     <div className='result-description'>
                                             {comicData.description ?
