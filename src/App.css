@@ -645,3 +645,8 @@ form.header__search input {
   transform-origin: bottom;
   z-index: 9999999;
 }
+
+
+.favoris .results-wrapper .result-item {
+  max-width: 130px;
+}

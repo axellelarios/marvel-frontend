@@ -7,7 +7,8 @@ import transition from '../js/Transition';
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
- 
+import Favorite from '../components/Favorite' 
+
 const Favoris = () => {
    
     const [favorites, setFavorites] = useState({data: []});
@@ -22,7 +23,7 @@ const Favoris = () => {
     //console.log(favorites)
 
     return (
-        <main className='home index'>
+        <main className='favoris'>
             <div className="container">
                 <div className='header-content'> 
                     <Title title="Your favorites" />
@@ -33,8 +34,9 @@ const Favoris = () => {
                         let url = data.thumbnail.path + "/standard_medium" +  "." + data.thumbnail.extension
                         return (
                             <div className='result-item' key={data.id + index}> 
-                                <Link  className='result-image' to={`/pages/comic/${data._id}`} ><img src={url} /></Link>
+                                <div className='result-image'><img src={url} /></div>
                                 <div className='result-title'>{data.title ? data.title : data.name}</div>
+                      
                             </div>
                        )}
                     )} 
