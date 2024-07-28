@@ -288,6 +288,13 @@ a {
   font-weight: 700;
   line-height: 1.4em;
   padding: 0 20px;
+  color: #4974E6;
+  font-family: 'Tusker';
+  text-transform: uppercase;
+}
+
+.characters-main .results-wrapper .result-item .result-title {
+  color: #F7FFFD;
 }
 
 .results-wrapper .result-item .result-description {
@@ -371,16 +378,20 @@ form.header__search svg {
   position: absolute;
   top: 30%;
   left: 16px;
+  fill: #4975E6;
 }
 
 form.header__search input { 
   min-height: 40px;
   border-radius: 50px;
   border: 0;
+  color: #F7FFFD;
   padding: 0 20px;
   min-width: 290px;
   font-size: 18px;
   padding-left: 40px;
+  background: transparent;
+  border: 1px solid #ffffff63;
 }
 
 .results-wrapper {
@@ -512,7 +523,7 @@ form.header__search input {
 
 .hero-content {
   display: flex;
-  background: #2f1f57;
+  background: #4974e6;
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 40px;
