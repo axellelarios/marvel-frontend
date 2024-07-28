@@ -269,7 +269,7 @@ a {
 }
 
 .results-wrapper .result-item .result-title {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.4em;
   padding: 0 20px;
@@ -333,8 +333,14 @@ a {
 }
 
 @media only screen and  (max-width: 500px) {
+  .results-wrapper .result-item .result-title {
+    font-size: 14px;
+  }
   .header-content {
     gap: 30px;
+  }
+  .results-wrapper .result-item {
+    gap: 10px;
   }
   .characters-main .results-wrapper .result-item {
     width: calc(47% - 0px);
